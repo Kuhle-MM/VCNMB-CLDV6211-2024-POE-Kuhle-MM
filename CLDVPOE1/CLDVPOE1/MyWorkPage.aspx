@@ -42,7 +42,7 @@
                           </h4>
                           R 672.99
                             <h5>
-                                This ancient
+                                
                             </h5>
                         </div>
                 </div>
@@ -52,3 +52,9 @@
 
 
 </asp:Content>
+
+<%-- Braintemple Tutorial TV (2018). Bootstrap 4 tutorial 15 adding background image. YouTube. Available at: https://www.youtube.com/watch?v=xbHvjWYDHkg [Accessed 2 Apr. 2024].
+     IAmTimCorey (2018). Intro to Bootstrap in ASP.NET MVC. YouTube. Available at: https://www.youtube.com/watch?v=vRqz_zUiJTw&t=1239s [Accessed 2 Apr. 2024].
+
+‌
+‌ --%>
