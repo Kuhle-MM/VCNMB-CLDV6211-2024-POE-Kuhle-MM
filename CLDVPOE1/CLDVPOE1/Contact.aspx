@@ -8,7 +8,7 @@
             <address>
                 36 Justin Road<br />
                 Broadwood, Gqeberha<br />
-                <abbr title="Phone">P:</abbr>
+                <abbr title="Phone">Phone: </abbr>
                 0837115558
             </address>
 
