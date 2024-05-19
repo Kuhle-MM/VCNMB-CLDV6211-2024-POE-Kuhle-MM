@@ -22,4 +22,6 @@
     <br />
     <br />
     <asp:Button runat="server" Text="Sign Up!" ID="btnSignUp" OnClick="btnSignUp_Click" />
+    &nbsp&nbsp&nbsp
+    <asp:HyperLink ID="hlToLoginPage" runat="server" NavigateUrl="~/Login">Login instead? Click here!</asp:HyperLink>
 </asp:Content>

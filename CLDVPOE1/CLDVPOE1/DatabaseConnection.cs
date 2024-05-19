@@ -26,7 +26,7 @@ namespace CLDVPOE1
         public void SignUp(string name, string surname, string email, string password, string staff)
         {
             connection.Open();//Change later and use the methods above to open and close the connection
-            string sql = "INSERT INTO User(Name,Surname, Email, Password, Staff) Values (@name,@surname,@email, @password, @staff)";
+            string sql = "INSERT INTO [User](Name,Surname, Email, Password, Staff) Values (@name,@surname,@email, @password, @staff)";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@surname", surname);
@@ -40,7 +40,7 @@ namespace CLDVPOE1
         public UserInfomation UserLogin(string email, string password)
         {
             connection.Open ();
-            string sql = "SELECT * FROM User WHERE email = @email AND password = @password";
+            string sql = "SELECT * FROM [User] WHERE email = @email AND password = @password";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@password", password);

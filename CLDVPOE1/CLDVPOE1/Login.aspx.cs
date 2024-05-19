@@ -25,8 +25,14 @@ namespace CLDVPOE1
             }
             else
             {
-
+                txtLoginEmail.Text = null;
+                txtLoginPassword.Text = null;
             }
+        }
+
+        protected void btnToSignUp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SignUp");
         }
     }
 }

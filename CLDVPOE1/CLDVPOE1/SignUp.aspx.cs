@@ -19,8 +19,9 @@ namespace CLDVPOE1
         {
             string staff = "yes";
 
-            dc.SignUp(txtSignUpName.Text, txtSignUpEmail.Text, txtSurname.Text, txtSignUpPassword.Text, staff);
+            dc.SignUp(txtSignUpName.Text, txtSurname.Text, txtSignUpEmail.Text, txtSignUpPassword.Text, staff);
 
+            Response.Redirect("~/Login");
 
         }
     }
