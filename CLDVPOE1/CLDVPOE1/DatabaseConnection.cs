@@ -67,5 +67,32 @@ namespace CLDVPOE1
             }
 
         }
+
+        public List<ArtWork> GetArtWorks()
+        {
+            List<ArtWork> myWork = new List<ArtWork>();
+            connection.Open();
+            string sql = "select * from Menu";
+            command = new SqlCommand (sql, connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);    
+            DataTable dt = new DataTable ();
+            dataAdapter.Fill(dt);
+            connection.Close();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                myWork.Add(new ArtWork
+                {
+                    workID = Convert.ToInt32(row["WorkID"].ToString()),
+                    name = row["Name"].ToString(),
+                    description = row["Description"].ToString(),
+                    price = Convert.ToDouble(row["Price"].ToString()),
+                    imageLink = row["ImageLink"].ToString()
+
+                });
+            }
+            return myWork;
+           
+        }
     }
 }

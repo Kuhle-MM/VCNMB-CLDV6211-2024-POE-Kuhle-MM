@@ -3,44 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="media-left">
-                <a>
-                    <img class="media-object" src="Image/item1.jpg" height="200px" width="250px">
-                </a>
-            </div>
-            <div class="media-bottom">
-                <h4 class="media-heading">Mystique Ceramic Tea Set
-                </h4>
-                ZAR 2,449.95
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="media-middle">
-                <a>
-                    <img class="media-object" src="Image/item2.jpg" height="250px" width="250px">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Halalooloo Bowls
-                </h4>
-                ZAR 989.98
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="media-right">
-                <a>
-                    <img class="media-object" src="Image/item3.jpg" height="250px" width="250px">
-                </a>
-            </div>
-            <div class="media-bottom">
-                <h4 class="media-heading">Golden Sunshine Mug
-                </h4>
-                R 672.99
-                            <h5></h5>
-            </div>
+        <div class="column">
+            <asp:Repeater ID="workRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="column">
+                        <h2><%# Eval("Name") %></h2>
+                        <asp:Image runat="server" ImageUrl="<%# Eval("ImageUrl") %>" Height="150" Width="150" />
+                        <p>
+                            <%# Eval("Description")%>
+                        </p>
+                        <p>
+                            R<%# Eval("Price") %>
+                        </p>
+                        <asp:Button runat="server" Text="Add To Cart" ID="btnAddToCart" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("WorkID") %>' />
+                    </div>
+                    
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 
