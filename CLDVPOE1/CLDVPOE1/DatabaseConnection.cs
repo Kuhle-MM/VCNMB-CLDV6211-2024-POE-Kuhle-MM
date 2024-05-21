@@ -72,8 +72,10 @@ namespace CLDVPOE1
         {
             List<ArtWork> myWork = new List<ArtWork>();
             connection.Open();
-            string sql = "select * from Menu";
+            string sql = "select * from Work";
             command = new SqlCommand (sql, connection);
+            command.ExecuteNonQuery ();
+
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);    
             DataTable dt = new DataTable ();
             dataAdapter.Fill(dt);
@@ -87,7 +89,7 @@ namespace CLDVPOE1
                     name = row["Name"].ToString(),
                     description = row["Description"].ToString(),
                     price = Convert.ToDouble(row["Price"].ToString()),
-                    imageLink = row["ImageLink"].ToString()
+                    imageUrl = row["ImageUrl"].ToString()
 
                 });
             }

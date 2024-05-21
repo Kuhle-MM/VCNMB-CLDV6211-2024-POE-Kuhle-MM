@@ -11,6 +11,6 @@ namespace CLDVPOE1
         public string name { get; set; }
         public string description { get; set; }
         public double price { get; set; }
-        public string imageLink { get; set; }
+        public string imageUrl { get; set; }
     }
 }
