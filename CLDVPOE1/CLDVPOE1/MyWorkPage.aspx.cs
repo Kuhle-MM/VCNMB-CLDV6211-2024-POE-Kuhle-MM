@@ -11,6 +11,7 @@ namespace CLDVPOE1
     {
         DatabaseConnection dc = new DatabaseConnection();
         List<ArtWork> artWorks = new List<ArtWork>();
+        static List<ArtWork> cart = new List<ArtWork>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,6 +25,19 @@ namespace CLDVPOE1
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btnAddToCart_Command(object sender, CommandEventArgs e)
+        {
+            int artID = Convert.ToInt32(e.CommandArgument);
+            foreach (ArtWork artWork in artWorks)
+            {
+                if (artWork.artID == artID)
+                {
+                    cart.Add(artWork);
+                }
+            }
 
         }
     }

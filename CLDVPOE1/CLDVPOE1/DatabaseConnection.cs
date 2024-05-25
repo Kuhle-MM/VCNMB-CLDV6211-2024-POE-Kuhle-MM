@@ -39,7 +39,7 @@ namespace CLDVPOE1
 
         public UserInfomation UserLogin(string email, string password)
         {
-            connection.Open ();
+            connection.Open();
             string sql = "SELECT * FROM [User] WHERE email = @email AND password = @password";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@email", email);
@@ -57,7 +57,8 @@ namespace CLDVPOE1
             }
             else
             {
-                UserInfomation temp = new UserInfomation{
+                UserInfomation temp = new UserInfomation
+                {
                     email = dt.Rows[0]["Email"].ToString(),
                     name = dt.Rows[0]["Name"].ToString(),
                     staff = dt.Rows[0]["Staff"].ToString().Equals("yes"),
@@ -73,11 +74,11 @@ namespace CLDVPOE1
             List<ArtWork> myWork = new List<ArtWork>();
             connection.Open();
             string sql = "select * from Work";
-            command = new SqlCommand (sql, connection);
-            command.ExecuteNonQuery ();
+            command = new SqlCommand(sql, connection);
+            command.ExecuteNonQuery();
 
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);    
-            DataTable dt = new DataTable ();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
             connection.Close();
 
@@ -85,16 +86,18 @@ namespace CLDVPOE1
             {
                 myWork.Add(new ArtWork
                 {
-                    workID = Convert.ToInt32(row["WorkID"].ToString()),
+                    artID = Convert.ToInt32(row["WorkID"].ToString()),
                     name = row["Name"].ToString(),
                     description = row["Description"].ToString(),
                     price = Convert.ToDouble(row["Price"].ToString()),
-                    imageUrl = row["ImageUrl"].ToString()
+                    imageUrl = row["ImageUrl"].ToString(),
+                    category = row["Category"].ToString(),
+                    availability = Convert.ToInt32(row["Availability"].ToString())
 
                 });
             }
             return myWork;
-           
+
         }
     }
 }

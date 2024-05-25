@@ -7,10 +7,14 @@ namespace CLDVPOE1
 {
     public class ArtWork
     {
-        public int workID {  get; set; }
+        public int artID { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public double price { get; set; }
         public string imageUrl { get; set; }
+
+        public string category { get; set; }
+
+        public int availability { get; set; }
     }
 }
