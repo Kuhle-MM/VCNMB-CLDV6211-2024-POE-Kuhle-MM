@@ -99,5 +99,30 @@ namespace CLDVPOE1
             return myWork;
 
         }
+
+        public void SubmitOrder(List<ArtWork> cart)
+        {
+            double total = 0;
+            string orderString = "";
+
+            foreach (ArtWork artwork in cart)
+            {
+                total += artwork.price;
+                orderString += $"{artwork.name},";
+            }
+
+            connection.Open();
+            string sql = "INSERT INTO [Order] VALUES (@OrderTime, @OrderTotal, @OrderDetails, @UserID, @OrderStatus)";
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@OrderTime", DateTime.Now);
+            command.Parameters.AddWithValue("@OrderTotal", total);
+            command.Parameters.AddWithValue("@OrderDetails", orderString);
+            command.Parameters.AddWithValue("@UserID", UserHolder.loggedInUser.id);
+            command.Parameters.AddWithValue("@OrderStatus", "open");
+            command.ExecuteNonQuery();
+            connection.Close(); 
+            
+
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace CLDVPOE1
             UserInfomation temp = dc.UserLogin (txtLoginEmail.Text,txtLoginPassword.Text);
             if (temp != null)
             {
+                UserHolder.loggedInUser = temp;
                 Response.Redirect("~/Default");
             }
             else

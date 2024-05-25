@@ -10,13 +10,14 @@ namespace CLDVPOE1
     public partial class MyWorkPage : System.Web.UI.Page
     {
         DatabaseConnection dc = new DatabaseConnection();
-        List<ArtWork> artWorks = new List<ArtWork>();
-        static List<ArtWork> cart = new List<ArtWork>();
+        static List<ArtWork> artWorks = new List<ArtWork>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            artWorks = dc.GetArtWorks();
             if (!IsPostBack)
             {
-                artWorks = dc.GetArtWorks();
+                
                 workRepeater.DataSource = artWorks;
                 workRepeater.DataBind();
 
@@ -25,19 +26,21 @@ namespace CLDVPOE1
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnAddToCart_Command(object sender, CommandEventArgs e)
-        {
-            int artID = Convert.ToInt32(e.CommandArgument);
+            Button button = (Button)sender;
+            int artID = Convert.ToInt32(button.CommandArgument);
             foreach (ArtWork artWork in artWorks)
             {
                 if (artWork.artID == artID)
                 {
-                    cart.Add(artWork);
+                    CartHolder.cart.Add(artWork);
+                    break;
                 }
             }
+        }
+
+        protected void btnAddToCart_Command(object sender, CommandEventArgs e)
+        {
+            
 
         }
     }

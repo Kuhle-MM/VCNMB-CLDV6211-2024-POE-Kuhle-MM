@@ -15,7 +15,7 @@
                         <href style="color: gray"><%# Eval("Category") %></href><br />
                         Avail: <%# Eval("Availability") %><br />
                     </p>
-                    <asp:Button runat="server" Text="Add To Cart" ID="btnAddToCart" OnCommand="btnAddToCart_Command" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("WorkID") %>' />
+                    <asp:Button runat="server" Text="Add To Cart" ID="btnAddToCart" OnCommand="btnAddToCart_Command" OnClick="btnAddToCart_Click" CommandArgument='<%# Eval("artID") %>' />
                 </div>
             </ItemTemplate>
         </asp:Repeater>
