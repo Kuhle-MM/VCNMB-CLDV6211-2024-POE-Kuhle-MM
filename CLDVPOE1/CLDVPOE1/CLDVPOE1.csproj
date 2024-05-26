@@ -132,6 +132,8 @@
     <Content Include="Image\item2.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="MyWorkPage.aspx" />
+    <Content Include="NewArtWork.aspx" />
+    <Content Include="OrderHistory.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -246,6 +248,21 @@
     </Compile>
     <Compile Include="MyWorkPage.aspx.designer.cs">
       <DependentUpon>MyWorkPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewArtWork.aspx.cs">
+      <DependentUpon>NewArtWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewArtWork.aspx.designer.cs">
+      <DependentUpon>NewArtWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderHistory.aspx.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.designer.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.aspx.cs">

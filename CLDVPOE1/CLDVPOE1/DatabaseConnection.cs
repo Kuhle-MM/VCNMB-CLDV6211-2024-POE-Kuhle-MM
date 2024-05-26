@@ -124,5 +124,78 @@ namespace CLDVPOE1
             
 
         }
+
+        public List<Order> GetAllOrders()
+        {
+            List<Order> orders = new List<Order>(); 
+            connection.Open();
+            string sql = "Select * From [Order]";
+            command = new SqlCommand(sql, connection);
+            command.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            connection.Close();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                orders.Add(new Order{
+                    orderID = Convert.ToInt32(row["OrderID"].ToString()),
+                    orderTime = DateTime.Parse(row["OrderTime"].ToString()),
+                    orderDetails = row["OrderDetails"].ToString(),
+                    orderTotal = Double.Parse(row["OrderTotal"].ToString()),
+                    userId = Convert.ToInt32(row["UserID"]),
+                    orderStatus = row["OrderStatus"].ToString()
+
+                });
+            }
+
+            return orders;
+        }
+
+        public List<Order> GetUserOrders(int userID)
+        {
+            List<Order> orders = new List<Order>();
+            connection.Open();
+            string sql = "Select * From [Order] where UserId = @UserID";
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("UserId", userID);
+            command.ExecuteNonQuery();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            connection.Close ();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                orders.Add(new Order
+                {
+                    orderID = Convert.ToInt32(row["OrderID"].ToString()),
+                    orderTime = DateTime.Parse(row["OrderTime"].ToString()),
+                    orderDetails = row["OrderDetails"].ToString(),
+                    orderTotal = Double.Parse(row["OrderTotal"].ToString()),
+                    userId = Convert.ToInt32(row["UserID"]),
+                    orderStatus = row["OrderStatus"].ToString()
+
+
+                });
+            }
+
+            return orders;
+        }
+
+        public void UpdateOrder(int orderID, string currentStatus)
+        {
+            connection.Open();
+            string sql = "Update [Order] set OrderStatus = @currentStatus where OrderId = @orderID";
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@currentStatus", currentStatus);
+            command.Parameters.AddWithValue ("@UserId", orderID);  
+            command.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
+
     }
 }
