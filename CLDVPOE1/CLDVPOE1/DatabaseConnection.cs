@@ -196,6 +196,19 @@ namespace CLDVPOE1
 
         }
 
-
+        public void AddNewArtWork(ArtWork art)
+        {
+            connection.Open ();
+            string sql = "Insert into Products values (@Name, @Description, @Price, @ImageUrl, @Catagory, @Availability)";
+            command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@Name", art.name);
+            command.Parameters.AddWithValue("@Description", art.description);
+            command.Parameters.AddWithValue("@Price", art.price);
+            command.Parameters.AddWithValue("@ImageUrl", art.imageUrl);
+            command.Parameters.AddWithValue("@Catagory", art.category);
+            command.Parameters.AddWithValue("@Availability", art.availability);
+            command.ExecuteNonQuery ();
+            connection.Close();
+        }
     }
 }
