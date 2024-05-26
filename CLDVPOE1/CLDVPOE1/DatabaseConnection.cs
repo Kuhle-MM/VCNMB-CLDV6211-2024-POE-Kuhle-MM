@@ -187,10 +187,10 @@ namespace CLDVPOE1
         public void UpdateOrder(int orderID, string currentStatus)
         {
             connection.Open();
-            string sql = "Update [Order] set OrderStatus = @currentStatus where OrderId = @orderID";
+            string sql = "Update [Order] set OrderStatus = @currentStatus where OrderId = @OrderID";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@currentStatus", currentStatus);
-            command.Parameters.AddWithValue ("@UserId", orderID);  
+            command.Parameters.AddWithValue ("@OrderId", orderID);  
             command.ExecuteNonQuery();
             connection.Close();
 
@@ -199,7 +199,7 @@ namespace CLDVPOE1
         public void AddNewArtWork(ArtWork art)
         {
             connection.Open ();
-            string sql = "Insert into Products values (@Name, @Description, @Price, @ImageUrl, @Catagory, @Availability)";
+            string sql = "Insert into Work values (@Name, @Description, @Price, @ImageUrl, @Catagory, @Availability)";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@Name", art.name);
             command.Parameters.AddWithValue("@Description", art.description);

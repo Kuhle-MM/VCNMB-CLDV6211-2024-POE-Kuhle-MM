@@ -52,10 +52,15 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MyWorkPage" style="color: darkred">My Work</a></li>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/Home">Home</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></ul>
+                        
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/MyWorkPage" style="color: darkred">My Work</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/Login" >Login</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/NewArtWork">Add New Art Work</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/CustomerCart" >Cart</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/OrderHistory">Order History</a></ul>
+                        
                     </ul>
                 </div>
             </div>
@@ -65,7 +70,15 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
+                
+                <hclass="centre">KhumaloCrafts Emporium</h>
+
+                <div class="centre">
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></ul>
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></ul>
+                </div>
+
+                <p class="centre">&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
             </footer>
         </div>
     </form>
@@ -73,6 +86,14 @@
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
 </body>
+    <style>
+        .centre{
+            
+            margin: 100px;
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
 </html>
 <%-- IAmTimCorey (2018). Intro to Bootstrap in ASP.NET MVC. YouTube. Available at: https://www.youtube.com/watch?v=vRqz_zUiJTw&t=1239s [Accessed 2 Apr. 2024].
 

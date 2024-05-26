@@ -24,6 +24,15 @@ namespace CLDVPOE1
         protected global::System.Web.UI.WebControls.Label lblWarning;
 
         /// <summary>
+        /// divAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAdd;
+
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,32 @@ namespace CLDVPOE1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtImageUrl;
+
+        /// <summary>
+        /// txtCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCategory;
+
+        /// <summary>
+        /// txtAvailability control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAvailability;
+
+        /// <summary>
+        /// BtnAddProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddProduct;
     }
 }

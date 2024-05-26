@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CLDVPOE1._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CLDVPOE1._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -28,11 +28,11 @@
             <section class="col-md-4" aria-labelledby="hostingTitle">
                 <h2 id="hostingTitle">Get To know James Khumalo</h2>
                 <p>
-                    I am a very humble entrepenuer, who is amongst the best in the world in of pottery and no one can compete with my art. I used to play with mud from a a very 
-                    tender age who knew my mothers modest James would be pushing boundaries and exceeding expectations to become a global leader.
+                    I am a very humble entrepreneur, who is amongst the best in the world in of pottery and no one can compete with my art. I used to play with mud from a very 
+                    tender age. Who knew my mothers modest James would be pushing boundaries and exceeding expectations to become a global leader.
                 </p>
                 <p>
-                    <a class="btn btn-default" href="About.aspx">Learn more about me &raquo;</a>
+                   <a class="btn btn-default" href="About.aspx">Learn more about me &raquo;</a>
                 </p>
             </section>
         </div>

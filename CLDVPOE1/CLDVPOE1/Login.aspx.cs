@@ -18,16 +18,16 @@ namespace CLDVPOE1
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             
-            UserInfomation temp = dc.UserLogin (txtLoginEmail.Text,txtLoginPassword.Text);
+            UserInfomation temp = dc.UserLogin (txtLoginEmail.Text,txtLoginPassword.Value);
             if (temp != null)
             {
                 UserHolder.loggedInUser = temp;
-                Response.Redirect("~/Default");
+                Response.Redirect("~/Home");
             }
             else
             {
                 txtLoginEmail.Text = null;
-                txtLoginPassword.Text = null;
+                txtLoginPassword.Value = null;
             }
         }
 
