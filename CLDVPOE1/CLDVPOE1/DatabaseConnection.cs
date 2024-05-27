@@ -9,7 +9,7 @@ namespace CLDVPOE1
 {
     public class DatabaseConnection
     {
-        static string connectionString = "Data Source = labVMH8OX\\SQLEXPRESS;Initial Catalog = KhumaloCraftDB; Integrated Security = true";
+        static string connectionString = "Server=tcp:kuhle.database.windows.net,1433;Initial Catalog=KuhleMlinganiso;Persist Security Info=False;User ID=azuresql;Password=Kuhle500;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         static SqlConnection connection = new SqlConnection(connectionString);
         static SqlCommand command;
 
