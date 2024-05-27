@@ -47,12 +47,6 @@
             margin: 5px;
         }
 
-        html, body {
-            background-color: #FAB170;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
     </style>
 </asp:Content>
 

@@ -9,14 +9,5 @@
     <asp:Button ID="btnPurchase" runat="server" OnClick="btnPurchase_Click" Text="Purchase Items" />
     <asp:Button ID="btnClearCart" runat="server" OnClick="btnClearCart_Click" Text="Clear Cart" />
 
-
-    <style>
-    html, body {
-    background-color: #FAB170;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-</style>
 </asp:Content>
 

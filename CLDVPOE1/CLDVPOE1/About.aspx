@@ -17,14 +17,7 @@
             leaving a lasting impression on everyone who visits.</p>
             </div>
     </main>
-    <style>
-    html, body {
-    background-color: #FAB170;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-</style>
+    
 </asp:Content>
 <%-- IAmTimCorey (2018). Intro to Bootstrap in ASP.NET MVC. YouTube. Available at: https://www.youtube.com/watch?v=vRqz_zUiJTw&t=1239s [Accessed 2 Apr. 2024].
 

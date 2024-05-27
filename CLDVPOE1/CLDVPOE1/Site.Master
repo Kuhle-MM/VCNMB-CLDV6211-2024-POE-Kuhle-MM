@@ -37,7 +37,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="background-color: #694A2F !important; ">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="background-color: #694A2F !important;">
             <div class="container">
                 <div class="nav-item">
                     <asp:ImageButton ID="ImageButton1" runat="server" CssClass="nav-link" ImageUrl="~/Image/Logo.png" AlternateText="Logo" Height="50px" Width="50px"
@@ -81,42 +81,50 @@
             <hr />
             <footer style="background-color: #694A2F">
 
-                <h3 class="centre"  style="color: white">KhumaloCrafts Emporium</h3>
+                <h3 class="centre" style="color: white">KhumaloCrafts Emporium</h3>
 
                 <div class="centre">
                     <ul class="nav-item"><a class="nav-link" runat="server" href="~/About" style="color: white">About</a></ul>
                     <ul class="nav-item"><a class="nav-link" runat="server" href="~/Contact" style="color: white">Contact</a></ul>
                 </div>
 
-                <p class="centre"  style="color: white">&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
+                <p class="centre" style="color: white">&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
             </footer>
         </div>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+    <style>
+        html, body {
+            background-color: #FAB170;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .centre {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+
+        .top-padding {
+            padding: 0px
+        }
+
+        .leftitems {
+            margin-right: 50px;
+        }
+
+        .single-line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 </body>
-<style>
-    .centre {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
 
-    .top-padding {
-        padding: 0px
-    }
-
-    .leftitems {
-        margin-right: 50px;
-    }
-
-    .single-line {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-</style>
 </html>
 <%-- IAmTimCorey (2018). Intro to Bootstrap in ASP.NET MVC. YouTube. Available at: https://www.youtube.com/watch?v=vRqz_zUiJTw&t=1239s [Accessed 2 Apr. 2024].
 

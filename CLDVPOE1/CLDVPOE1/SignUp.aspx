@@ -35,13 +35,6 @@
         </div>
     </div>
     <style>
-        html, body {
-            background-color: #FAB170;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
         .centre {
             margin: auto;
             width: 50%;
