@@ -24,11 +24,6 @@ namespace CLDVPOE1
                 UserHolder.loggedInUser = temp;
                 Response.Redirect("~/Home");
             }
-            else
-            {
-                txtLoginEmail.Text = null;
-                txtLoginPassword.Value = null;
-            }
         }
 
         protected void btnToSignUp_Click(object sender, EventArgs e)

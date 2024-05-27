@@ -9,7 +9,7 @@ namespace CLDVPOE1
 {
     public class DatabaseConnection
     {
-        static string connectionString = "Server=tcp:kuhle.database.windows.net,1433;Initial Catalog=KuhleMlinganiso;Persist Security Info=False;User ID=azuresql;Password=Kuhle500;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        static string connectionString = "Server=tcp:kuhle.database.windows.net,1433;Initial Catalog=KhumaloCraftDB;Persist Security Info=False;User ID=azuresql;Password=Kuhle500;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         static SqlConnection connection = new SqlConnection(connectionString);
         static SqlCommand command;
 
@@ -26,7 +26,7 @@ namespace CLDVPOE1
         public void SignUp(string name, string surname, string email, string password, string staff)
         {
             connection.Open();//Change later and use the methods above to open and close the connection
-            string sql = "INSERT INTO [User](Name,Surname, Email, Password, Staff) Values (@name,@surname,@email, @password, @staff)";
+            string sql = "INSERT INTO Client (Name,Surname, Email, Password, Staff) Values (@name,@surname,@email, @password, @staff)";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@surname", surname);
@@ -40,7 +40,7 @@ namespace CLDVPOE1
         public UserInfomation UserLogin(string email, string password)
         {
             connection.Open();
-            string sql = "SELECT * FROM [User] WHERE email = @email AND password = @password";
+            string sql = "SELECT * FROM Client WHERE email = @email AND password = @password";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@password", password);
@@ -62,7 +62,7 @@ namespace CLDVPOE1
                     email = dt.Rows[0]["Email"].ToString(),
                     name = dt.Rows[0]["Name"].ToString(),
                     staff = dt.Rows[0]["Staff"].ToString().Equals("yes"),
-                    id = Convert.ToInt32(dt.Rows[0]["UserId"].ToString())
+                    id = Convert.ToInt32(dt.Rows[0]["ClientID"].ToString())
                 };
                 return temp;
             }
@@ -112,12 +112,12 @@ namespace CLDVPOE1
             }
 
             connection.Open();
-            string sql = "INSERT INTO [Order] VALUES (@OrderTime, @OrderTotal, @OrderDetails, @UserID, @OrderStatus)";
+            string sql = "INSERT INTO [Order] VALUES (@OrderTime, @OrderTotal, @OrderDetails, @ClientID, @OrderStatus)";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@OrderTime", DateTime.Now);
             command.Parameters.AddWithValue("@OrderTotal", total);
             command.Parameters.AddWithValue("@OrderDetails", orderString);
-            command.Parameters.AddWithValue("@UserID", UserHolder.loggedInUser.id);
+            command.Parameters.AddWithValue("@ClientID", UserHolder.loggedInUser.id);
             command.Parameters.AddWithValue("@OrderStatus", "open");
             command.ExecuteNonQuery();
             connection.Close(); 
@@ -144,7 +144,7 @@ namespace CLDVPOE1
                     orderTime = DateTime.Parse(row["OrderTime"].ToString()),
                     orderDetails = row["OrderDetails"].ToString(),
                     orderTotal = Double.Parse(row["OrderTotal"].ToString()),
-                    userId = Convert.ToInt32(row["UserID"]),
+                    clientId = Convert.ToInt32(row["ClientID"]),
                     orderStatus = row["OrderStatus"].ToString()
 
                 });
@@ -153,13 +153,13 @@ namespace CLDVPOE1
             return orders;
         }
 
-        public List<Order> GetUserOrders(int userID)
+        public List<Order> GetUserOrders(int ClientID)
         {
             List<Order> orders = new List<Order>();
             connection.Open();
-            string sql = "Select * From [Order] where UserId = @UserID";
+            string sql = "Select * From [Order] where ClientID = @ClientID";
             command = new SqlCommand(sql, connection);
-            command.Parameters.AddWithValue("UserId", userID);
+            command.Parameters.AddWithValue("ClientID", ClientID);
             command.ExecuteNonQuery();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -174,7 +174,7 @@ namespace CLDVPOE1
                     orderTime = DateTime.Parse(row["OrderTime"].ToString()),
                     orderDetails = row["OrderDetails"].ToString(),
                     orderTotal = Double.Parse(row["OrderTotal"].ToString()),
-                    userId = Convert.ToInt32(row["UserID"]),
+                    clientId = Convert.ToInt32(row["ClientID"]),
                     orderStatus = row["OrderStatus"].ToString()
 
 

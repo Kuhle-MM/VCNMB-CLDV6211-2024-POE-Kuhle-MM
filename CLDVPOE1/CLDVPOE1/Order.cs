@@ -11,7 +11,7 @@ namespace CLDVPOE1
         public DateTime orderTime { get; set; }
         public string orderDetails { get; set; }
         public double orderTotal { get; set; }
-        public int userId { get; set; }
+        public int clientId { get; set; }
         public string orderStatus {  get; set; }
 
     }
