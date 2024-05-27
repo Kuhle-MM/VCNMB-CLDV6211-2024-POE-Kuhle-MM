@@ -17,7 +17,7 @@ namespace CLDVPOE1
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            string staff = "yes";
+            string staff = "no";
 
             dc.SignUp(txtSignUpName.Text, txtSurname.Text, txtSignUpEmail.Text, txtSignUpPassword.Text, staff);
 
