@@ -3,11 +3,20 @@
     <asp:Label ID="lblEmpty" runat="server" Text="No Items in the cart. Browse Art Works to add to cart."></asp:Label>
     <br />
     <br />
-    <asp:DataGrid ID="dgCart" runat="server" AlternatingItemStyle-BackColor="Wheat" HeaderStyle-Font-Bold="true" Width="100%" HeaderStyle-BackColor="Tan"/>
+    <asp:DataGrid ID="dgCart" runat="server" AlternatingItemStyle-BackColor="#FAB170" HeaderStyle-Font-Bold="true" Width="100%" HeaderStyle-BackColor="Tan"/>
     <br />
     <br />
     <asp:Button ID="btnPurchase" runat="server" OnClick="btnPurchase_Click" Text="Purchase Items" />
     <asp:Button ID="btnClearCart" runat="server" OnClick="btnClearCart_Click" Text="Clear Cart" />
 
 
+    <style>
+    html, body {
+    background-color: #FAB170;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+</style>
 </asp:Content>
+

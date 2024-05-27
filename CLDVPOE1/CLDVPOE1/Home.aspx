@@ -7,14 +7,41 @@
         <asp:Image CssClass="whole-page" runat="server" src="https://images.pexels.com/photos/9982090/pexels-photo-9982090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <div class="dark-filter"></div>
         <section class="bottom-section">
-            <h3 style="color: white">Welcome to KhumaloCraft Emporium!</h3><br />
-            <p style="color: white">
+            <h1 style="font-size:64px; color: white">Welcome to KhumaloCraft Emporium!</h1>
+            <br />
+            <p style="font-size:32px; color: white">
                 The centre for the greatest artisans from all over the world. Explore and get what you like.
             </p>
         </section>
     </div>
-    <div>
 
+    <div class="row"   >
+        <section class="col-md-4" aria-labelledby="homeMyWork">
+            <h2>My Work</h2>
+            <p>
+                Get to know me through my work. 
+            </p>
+            <p>
+                <a class="btn btn-default" href="MyWorkPage.aspx">My Work &raquo;</a>
+            </p>
+        </section>
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Other libraries</h2>
+            <p>
+                Coming Soon...
+            </p>
+
+        </section>
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Get To know James Khumalo</h2>
+            <p>
+                I am a very humble entrepreneur, who is amongst the best in the world in of pottery and no one can compete with my art. I used to play with mud from a very 
+             tender age. Who knew my mothers modest James would be pushing boundaries and exceeding expectations to become a global leader.
+            </p>
+            <p>
+                <a class="btn btn-default" href="About.aspx">Learn more about me &raquo;</a>
+            </p>
+        </section>
     </div>
 
     <%--<main style="background-color: #FAB170" class="whole-page">--%>
@@ -67,11 +94,13 @@
             padding: 0;
             height: 100%;
         }
-
+        .div-medium{
+            width:100%;
+        }
         .whole-page {
             width: 100%;
             height: 90vh;
-            position: relative; /* Add position relative */
+            position: relative;
         }
 
         .image-container {
@@ -95,9 +124,13 @@
             margin: 20px;
             position: absolute;
             bottom: 0;
-            padding-bottom:50px;
+            padding-bottom: 50px;
             width: 100%;
             z-index: 2; /* Ensure the text is above the overlay */
+        }
+
+        .centre{
+
         }
     </style>
 </asp:Content>

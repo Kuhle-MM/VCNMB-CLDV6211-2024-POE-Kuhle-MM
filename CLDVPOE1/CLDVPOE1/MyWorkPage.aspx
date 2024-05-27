@@ -4,8 +4,8 @@
 
     <asp:Repeater ID="CategoryRepeater" runat="server" OnItemDataBound="CategoryRepeater_ItemDataBound">
         <ItemTemplate>
-            <div class="category-section" >
-                <h2 class="category-title" style="background-color:antiquewhite"><%# Eval("CategoryName") %></h2>
+            <div class="category-section">
+                <h2 class="category-title" style="background-color: antiquewhite"><%# Eval("CategoryName") %></h2>
                 <div class="row">
 
                     <asp:Repeater ID="workRepeater" runat="server">
@@ -45,6 +45,13 @@
 
         .image-item {
             margin: 5px;
+        }
+
+        html, body {
+            background-color: #FAB170;
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
     </style>
 </asp:Content>
