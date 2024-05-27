@@ -210,5 +210,29 @@ namespace CLDVPOE1
             command.ExecuteNonQuery ();
             connection.Close();
         }
+
+        public List<ImageCategory> GetArtWorksGroupedByCategory()
+        {
+            List<ArtWork> artworks = GetArtWorks();
+            var groupedData = new List<ImageCategory>();
+
+            foreach (var artwork in artworks)
+            {
+                var category = groupedData.Find(c => c.CategoryName == artwork.category);
+                if (category == null)
+                {
+                    category = new ImageCategory
+                    {
+                        CategoryName = artwork.category,
+                        ArtWorks = new List<ArtWork>()
+                    };
+                    groupedData.Add(category);
+                }
+                category.ArtWorks.Add(artwork);
+            }
+
+            return groupedData;
+        }
+
     }
 }

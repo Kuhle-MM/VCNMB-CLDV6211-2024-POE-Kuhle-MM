@@ -37,13 +37,12 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="background-color: bisque">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark" style="background-color: #694A2F !important; ">
             <div class="container">
-                <li class="nav-item">
-                    <a class="nav-link" href="~/Default">
-                        <img src="Image/Logo.png" alt="Logo" height="45px" width="45px">
-                    </a>
-                </li>
+                <div class="nav-item">
+                    <asp:ImageButton ID="ImageButton1" runat="server" CssClass="nav-link" ImageUrl="~/Image/Logo.png" AlternateText="Logo" Height="50px" Width="50px"
+                        PostBackUrl="~/Home" />
+                </div>
 
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -52,33 +51,44 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/Home">Home</a></ul>
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></ul>
-                        
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/MyWorkPage" style="color: darkred">My Work</a></ul>
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/Login" >Login</a></ul>
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/NewArtWork">Add New Art Work</a></ul>
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/CustomerCart" >Cart</a></ul>
-                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/OrderHistory">Order History</a></ul>
-                        
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/Home" style="color: white">Home</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/About" style="color: white">About</a></ul>
+                        <ul class="nav-item"><a class="nav-link" runat="server" href="~/MyWorkPage" style="color: white">My Work</a></ul>
+
+
+
                     </ul>
+
                 </div>
+
             </div>
+            <div class="leftitems navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+
+                    <ul class="nav-item"><a class="nav-link single-line" runat="server" href="~/NewArtWork" style="color: white">Add New Art Work</a></ul>
+                    <ul class="nav-item"><a class="nav-link single-line" runat="server" href="~/OrderHistory" style="color: white">Order History</a></ul>
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/CustomerCart" style="color: white">Cart</a></ul>
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/Login" style="color: white">Login</a></ul>
+
+                </ul>
+            </div>
+
+
         </nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                
-                <hclass="centre">KhumaloCrafts Emporium</h>
+            <footer style="background-color: #694A2F">
+
+                <h3 class="centre"  style="color: white">KhumaloCrafts Emporium</h3>
 
                 <div class="centre">
-                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></ul>
-                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></ul>
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/About" style="color: white">About</a></ul>
+                    <ul class="nav-item"><a class="nav-link" runat="server" href="~/Contact" style="color: white">Contact</a></ul>
                 </div>
 
-                <p class="centre">&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
+                <p class="centre"  style="color: white">&copy; <%: DateTime.Now.Year %> - KhumaloCraft Emporium</p>
             </footer>
         </div>
     </form>
@@ -86,14 +96,27 @@
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
 </body>
-    <style>
-        .centre{
-            
-            margin: 100px;
-            width: 50%;
-            padding: 10px;
-        }
-    </style>
+<style>
+    .centre {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .top-padding {
+        padding: 0px
+    }
+
+    .leftitems {
+        margin-right: 50px;
+    }
+
+    .single-line {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 </html>
 <%-- IAmTimCorey (2018). Intro to Bootstrap in ASP.NET MVC. YouTube. Available at: https://www.youtube.com/watch?v=vRqz_zUiJTw&t=1239s [Accessed 2 Apr. 2024].
 

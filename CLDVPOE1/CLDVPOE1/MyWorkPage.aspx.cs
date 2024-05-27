@@ -17,10 +17,31 @@ namespace CLDVPOE1
             artWorks = dc.GetArtWorks();
             if (!IsPostBack)
             {
-                
-                workRepeater.DataSource = artWorks;
-                workRepeater.DataBind();
 
+                List<ImageCategory> categories = dc.GetArtWorksGroupedByCategory();
+                CategoryRepeater.DataSource = categories;
+                CategoryRepeater.DataBind();
+
+
+            }
+        }
+
+        protected void CategoryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                // Get the current category name
+                string categoryName = ((ImageCategory)e.Item.DataItem).CategoryName;
+
+                // Find the nested repeater
+                Repeater workRepeater = (Repeater)e.Item.FindControl("workRepeater");
+
+                // Filter artworks by category
+                List<ArtWork> filteredArtWorks = artWorks.Where(art => art.category == categoryName).ToList();
+
+                // Bind the filtered artworks to the nested repeater
+                workRepeater.DataSource = filteredArtWorks;
+                workRepeater.DataBind();
             }
         }
 

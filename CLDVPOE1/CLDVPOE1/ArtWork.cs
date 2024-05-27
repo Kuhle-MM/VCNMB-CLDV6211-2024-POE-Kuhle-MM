@@ -17,4 +17,10 @@ namespace CLDVPOE1
 
         public int availability { get; set; }
     }
+
+    public class ImageCategory
+    {
+        public string CategoryName { get; set; }
+        public List<ArtWork> ArtWorks { get; set; }
+    }
 }
