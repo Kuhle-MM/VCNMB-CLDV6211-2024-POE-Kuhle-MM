@@ -13,16 +13,7 @@ namespace CLDVPOE1
         static SqlConnection connection = new SqlConnection(connectionString);
         static SqlCommand command;
 
-        public void ConnectToDB()
-        {
-            connection.Open();
-        }
-
-        public void DisconnectFromDB()
-        {
-            connection.Close();
-        }
-
+        //Inserts the users sign up details into the database
         public void SignUp(string name, string surname, string email, string password, string staff)
         {
             connection.Open();//Change later and use the methods above to open and close the connection
@@ -37,6 +28,7 @@ namespace CLDVPOE1
             connection.Close();
         }
 
+        //collects the users information from the database and displays it in a data table which then sends the information into the website
         public UserInfomation UserLogin(string email, string password)
         {
             connection.Open();
@@ -69,6 +61,7 @@ namespace CLDVPOE1
 
         }
 
+        //Collects the art work details and sends it to the website
         public List<ArtWork> GetArtWorks()
         {
             List<ArtWork> myWork = new List<ArtWork>();
@@ -100,6 +93,7 @@ namespace CLDVPOE1
 
         }
 
+        //when a user finishes an order then the information goes into the data base
         public void SubmitOrder(List<ArtWork> cart)
         {
             double total = 0;
@@ -112,7 +106,7 @@ namespace CLDVPOE1
             }
 
             connection.Open();
-            string sql = "INSERT INTO [Order] VALUES (@OrderTime, @OrderTotal, @OrderDetails, @ClientID, @OrderStatus)";
+            string sql = "INSERT INTO OrderForm (OrderTime, OrderTotal, OrderDetails, ClientID, OrderStatus) VALUES (@OrderTime, @OrderTotal, @OrderDetails, @ClientID, @OrderStatus)";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@OrderTime", DateTime.Now);
             command.Parameters.AddWithValue("@OrderTotal", total);
@@ -125,11 +119,12 @@ namespace CLDVPOE1
 
         }
 
+        //Collects all the orders that have been made and puts them in a data table then into the website
         public List<Order> GetAllOrders()
         {
             List<Order> orders = new List<Order>(); 
             connection.Open();
-            string sql = "Select * From [Order]";
+            string sql = "Select * From OrderForm";
             command = new SqlCommand(sql, connection);
             command.ExecuteNonQuery();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -152,12 +147,12 @@ namespace CLDVPOE1
 
             return orders;
         }
-
+        //Collects all the orders done by one user then send it to the website to  be displayed later
         public List<Order> GetUserOrders(int ClientID)
         {
             List<Order> orders = new List<Order>();
             connection.Open();
-            string sql = "Select * From [Order] where ClientID = @ClientID";
+            string sql = "Select * From OrderForm where ClientID = @ClientID";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("ClientID", ClientID);
             command.ExecuteNonQuery();
@@ -184,10 +179,11 @@ namespace CLDVPOE1
             return orders;
         }
 
+        //changes the order status to confirm which orders have been done and which ones havent
         public void UpdateOrder(int orderID, string currentStatus)
         {
             connection.Open();
-            string sql = "Update [Order] set OrderStatus = @currentStatus where OrderId = @OrderID";
+            string sql = "Update OrderForm set OrderStatus = @currentStatus where OrderId = @OrderID";
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@currentStatus", currentStatus);
             command.Parameters.AddWithValue ("@OrderId", orderID);  
@@ -196,6 +192,7 @@ namespace CLDVPOE1
 
         }
 
+        //adds a new art work into the database
         public void AddNewArtWork(ArtWork art)
         {
             connection.Open ();
@@ -211,6 +208,7 @@ namespace CLDVPOE1
             connection.Close();
         }
 
+       //this gets all the art works that belong to a certain category and groups them
         public List<ImageCategory> GetArtWorksGroupedByCategory()
         {
             List<ArtWork> artworks = GetArtWorks();

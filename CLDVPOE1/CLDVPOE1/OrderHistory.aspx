@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <main style="background-color: blanchedalmond">
-        <div class="centre">
+        <div class="small-width align-content-center">
             <h2>Order History</h2>
             <asp:DataGrid ID="dgOrders" runat="server" AlternatingItemStyle-BackColor="Wheat" HeaderStyle-Font-Bold="true" Width="100%" HeaderStyle-BackColor="Tan" />
             <br />
@@ -26,9 +26,13 @@
 
     <style>
         .centre {
-            margin: auto;
+            margin: 50px;
             width: 50%;
-            padding: 10px;
+            padding: 100px;
+        }
+
+        .small-width{
+            width: 90%;
         }
 
 

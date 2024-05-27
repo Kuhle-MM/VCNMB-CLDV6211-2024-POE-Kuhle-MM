@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="My Work" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyWorkPage.aspx.cs" Inherits="CLDVPOE1.MyWorkPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%-- Displays categores for the art works --%>
     <asp:Repeater ID="CategoryRepeater" runat="server" OnItemDataBound="CategoryRepeater_ItemDataBound">
         <ItemTemplate>
             <div class="category-section">
                 <h2 class="category-title" style="background-color: antiquewhite"><%# Eval("CategoryName") %></h2>
                 <div class="row">
-
+                    <%-- Displays each image in a category --%>
                     <asp:Repeater ID="workRepeater" runat="server">
                         <ItemTemplate>
                             <div class="col-4">

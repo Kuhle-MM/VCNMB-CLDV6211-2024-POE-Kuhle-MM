@@ -5,6 +5,7 @@ using System.Web;
 
 namespace CLDVPOE1
 {
+    //gets and sets 
     public class ArtWork
     {
         public int artID { get; set; }
@@ -18,6 +19,7 @@ namespace CLDVPOE1
         public int availability { get; set; }
     }
 
+    //gets and sets art work category
     public class ImageCategory
     {
         public string CategoryName { get; set; }

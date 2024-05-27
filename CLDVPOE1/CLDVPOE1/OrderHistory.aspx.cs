@@ -15,6 +15,7 @@ namespace CLDVPOE1
         {
             if (!IsPostBack)
             {
+                //Checks if the user is staff or not
                 if (UserHolder.loggedInUser.staff)
                 {
                     orders = dc.GetAllOrders();

@@ -14,7 +14,7 @@ namespace CLDVPOE1
         {
 
         }
-
+        //allows the user to login 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             
@@ -25,7 +25,7 @@ namespace CLDVPOE1
                 Response.Redirect("~/Home");
             }
         }
-
+        //allows the user to sign up 
         protected void btnToSignUp_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/SignUp");

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace CLDVPOE1
 {
+    //gets and sets the order information
     public class Order
     {
         public int orderID { get; set; }
